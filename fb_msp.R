@@ -5,8 +5,8 @@ library("tidyr")
 
 # Read command line arguments
 args <- commandArgs(trailingOnly = T)
-msp_file <- args[1]
-fb_file <- args[2]
+fb_file <- args[1]
+msp_file <- args[2]
 final_file <- args[3]
 
 # Read MSP and FB files into dataframes

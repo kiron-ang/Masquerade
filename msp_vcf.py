@@ -244,7 +244,7 @@ if __name__ == "__main__":
     print("Please also provide the number in the MSP that represents")
     print("the ancestry of interest (0, 1, 2, etc...) and the desired")
     print("name of the new file")
-    print("Usage: python main.py <VCF_path> <MSP_path> <anc_num> <out_name>")
+    print("Usage: python msp_vcf.py <VCF_path> <MSP_path> <anc_num> <out_name>")
     sys.exit(1)
 
   # Confirm the current Python version and the name of this script
@@ -254,8 +254,8 @@ if __name__ == "__main__":
       f"{sys.version_info[4]}")
 
   # Print confirmation messages for VCF and MSP file paths
-  vcf_path = sys.argv[1]
-  msp_path = sys.argv[2]
+  msp_path = sys.argv[1]
+  vcf_path = sys.argv[2]
   anc_num = sys.argv[3]
   out_name = sys.argv[4]
   print("The path of the VCF file you specified:", vcf_path)
