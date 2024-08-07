@@ -244,7 +244,8 @@ if __name__ == "__main__":
     print("Please also provide the number in the MSP that represents")
     print("the ancestry of interest (0, 1, 2, etc...) and the desired")
     print("name of the new file")
-    print("Usage: python msp_vcf.py <VCF_path> <MSP_path> <anc_num> <out_name>")
+    print("Usage: python msp_vcf.py <MSP_path> <VCF_path> " +
+      "<ancestry_number_to_replace_with_.> <name_of_new_VCF_file>")
     sys.exit(1)
 
   # Confirm the current Python version and the name of this script
@@ -258,15 +259,15 @@ if __name__ == "__main__":
   vcf_path = sys.argv[2]
   anc_num = sys.argv[3]
   out_name = sys.argv[4]
-  print("The path of the VCF file you specified:", vcf_path)
   print("The path of the MSP file you specified:", msp_path)
+  print("The path of the VCF file you specified:", vcf_path)
   print("The ancestry number you specified:", anc_num)
   print("The output file will be named:", out_name)
 
+  # Get time elapsed during masking
   start_time = time.time()
   print("The start time is:", start_time)
 
-  # Call the desired vcf-msp function
   replace_dot_using_ancestry(vcf_path, msp_path, anc_num, out_name)
 
   end_time = time.time()
