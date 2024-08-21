@@ -245,7 +245,7 @@ if __name__ == "__main__":
     print("the ancestry of interest (0, 1, 2, etc...) and the desired")
     print("name of the new file")
     print("Usage: python msp_vcf.py <MSP_path> <VCF_path> " +
-      "<ancestry_number_to_replace_with_.> <name_of_new_VCF_file>")
+      "<ancestry_number_that_will_NOT_be_replace_with_.> <name_of_new_VCF_file>")
     sys.exit(1)
 
   # Confirm the current Python version and the name of this script
