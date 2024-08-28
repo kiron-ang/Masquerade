@@ -90,6 +90,18 @@ def replace_dot_using_ancestry(path_to_vcf, path_to_msp, ancestry_in_msp, out_na
   vcf_lines_list = opened_vcf.readlines()
   msp_lines_list = opened_msp.readlines()
 
+  possible_msp_values = []
+  counter_first_line = 0
+  first_msp_line = msp_lines_list[0]
+  while counter_first_line < len(first_msp_line):
+    if first_msp_line[counter_first_line] == "=":
+      possible_msp_values.append(first_msp_line[counter_first_line + 1])
+    counter_first_line += 1
+  
+  if ancestry_in_msp not in possible_msp_values:
+    print("The specified ancestry number is not present in the MSP file.")
+    exit()
+
   # Call find_start() function to determine where to begin
   # This variable will change
   vcf_start = find_start(path_to_vcf)
