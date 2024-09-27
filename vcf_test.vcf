@@ -1,0 +1,87 @@
+##fileformat=VCFv4.3
+##FILTER=<ID=PASS,Description="All	filters	passed">
+##fileDate=31052018_15h52m43s
+##source=IGSRpipeline
+##reference=ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/reference/GRCh38_reference_genome/GRCh38_full_analysis_set_plus_decoy_hla.fa
+##FORMAT=<ID=GT,Number=1,Type=String,Description="Phased	Genotype">
+##contig=<ID=1>
+##INFO=<ID=AF,Number=A,Type=Float,Description="Estimated	allele	frequency	in	the	range	(0,1)">
+##INFO=<ID=AC,Number=A,Type=Integer,Description="Total	number	of	alternate	alleles	in	called	genotypes">
+##INFO=<ID=NS,Number=1,Type=Integer,Description="Number	of	samples	with	data">
+##INFO=<ID=AN,Number=1,Type=Integer,Description="Total	number	of	alleles	in	called	genotypes">
+##INFO=<ID=EAS_AF,Number=A,Type=Float,Description="Allele	frequency	in	the	EAS	populations	calculated	from	ACand	AN,	in	the	range	(0,1)">
+##INFO=<ID=EUR_AF,Number=A,Type=Float,Description="Allele	frequency	in	the	EUR	populations	calculated	from	ACand	AN,	in	the	range	(0,1)">
+##INFO=<ID=AFR_AF,Number=A,Type=Float,Description="Allele	frequency	in	the	AFR	populations	calculated	from	ACand	AN,	in	the	range	(0,1)">
+##INFO=<ID=AMR_AF,Number=A,Type=Float,Description="Allele	frequency	in	the	AMR	populations	calculated	from	ACand	AN,	in	the	range	(0,1)">
+##INFO=<ID=SAS_AF,Number=A,Type=Float,Description="Allele	frequency	in	the	SAS	populations	calculated	from	ACand	AN,	in	the	range	(0,1)">
+##INFO=<ID=VT,Number=.,Type=String,Description="indicates	what	type	of	variant	the	line	represents">
+##INFO=<ID=EX_TARGET,Number=0,Type=Flag,Description="indicates	whether	a	variant	is	within	the	exon	pull	down	target	boundaries">
+##INFO=<ID=DP,Number=1,Type=Integer,Description="Approximate	read	depth;	some	reads	may	have	been	filtered">
+##bcftools_annotateVersion=1.19-1-g0172073+htslib-1.19-1-g61b037b
+##bcftools_annotateCommand=annotate	--set-id	%CHROM_%POS	--rename-chrs	/share/hennlab/reference/liftover_references/NameConversion2.txt	/share/hennlab/reference/1000G_GRCh38_biallelic_SNV/vol1/ftp/data_collections/1000_genomes_project/release/20181203_biallelic_SNV/ALL.chr1.shapeit2_integrated_v1a.GRCh38.20181129.phased.vcf.gz;	Date=Fri	Apr	19	22:18:01	2024
+##bcftools_viewVersion=1.19-1-g0172073+htslib-1.19-1-g61b037b
+##bcftools_viewCommand=view	-S	/share/hennlab/projects/khoesan_ancestry/allsamples_phased_wCrawford/ibs/IBS_samples	-Ou	ALL.chr1.shapeit2_integrated_v1a.GRCh38.20181129.phased.nochr.ID.vcf.gz;	Date=Sat	Apr	20	08:28:13	2024
+##bcftools_viewCommand=view	-T	chr1.h3A_positions.txt	-Oz	-o	chr1.IBS.h3A.vcf.gz;	Date=Sat	Apr	20	08:28:13	2024
+##log_file=shapeit_log/cdb_kro_hmb_1000G_khm100_IGDP_ogr_AGR.hg38.geno05.maf00047.cleansamples_chr10.vcf.log
+##contig=<ID=10>
+##contig=<ID=11>
+##contig=<ID=12>
+##contig=<ID=13>
+##contig=<ID=14>
+##contig=<ID=15>
+##contig=<ID=16>
+##contig=<ID=17>
+##contig=<ID=18>
+##contig=<ID=19>
+##contig=<ID=20>
+##contig=<ID=21>
+##contig=<ID=22>
+##contig=<ID=2>
+##contig=<ID=3>
+##contig=<ID=4>
+##contig=<ID=5>
+##contig=<ID=6>
+##contig=<ID=7>
+##contig=<ID=8>
+##contig=<ID=9>
+##bcftools_concatVersion=1.15+htslib-1.15
+##bcftools_concatCommand=concat	-Oz	-o	allsamples.reheader.allchr.vcf.gz	allsamples.reheader.chr10.vcf.gz	allsamples.reheader.chr11.vcf.gz	allsamples.reheader.chr12.vcf.gz	allsamples.reheader.chr13.vcf.gz	allsamples.reheader.chr14.vcf.gz	allsamples.reheader.chr15.vcf.gz	allsamples.reheader.chr16.vcf.gz	allsamples.reheader.chr17.vcf.gz	allsamples.reheader.chr18.vcf.gz	allsamples.reheader.chr19.vcf.gz	allsamples.reheader.chr1.vcf.gz	allsamples.reheader.chr20.vcf.gz	allsamples.reheader.chr21.vcf.gz	allsamples.reheader.chr22.vcf.gz	allsamples.reheader.chr2.vcf.gz	allsamples.reheader.chr3.vcf.gz	allsamples.reheader.chr4.vcf.gz	allsamples.reheader.chr5.vcf.gz	allsamples.reheader.chr6.vcf.gz	allsamples.reheader.chr7.vcf.gz	allsamples.reheader.chr8.vcf.gz	allsamples.reheader.chr9.vcf.gz;	Date=Wed	May	10	12:41:46	2023
+##bcftools_concatVersion=1.19-1-g0172073+htslib-1.19-1-g61b037b
+##bcftools_concatCommand=concat	allsamples.reheader.chr1.vcf.gz	allsamples.reheader.chr2.vcf.gz	allsamples.reheader.chr3.vcf.gz	allsamples.reheader.chr4.vcf.gz	allsamples.reheader.chr5.vcf.gz	allsamples.reheader.chr6.vcf.gz	allsamples.reheader.chr7.vcf.gz	allsamples.reheader.chr8.vcf.gz	allsamples.reheader.chr9.vcf.gz	allsamples.reheader.chr10.vcf.gz	allsamples.reheader.chr11.vcf.gz	allsamples.reheader.chr12.vcf.gz	allsamples.reheader.chr13.vcf.gz	allsamples.reheader.chr14.vcf.gz	allsamples.reheader.chr15.vcf.gz	allsamples.reheader.chr16.vcf.gz	allsamples.reheader.chr17.vcf.gz	allsamples.reheader.chr18.vcf.gz	allsamples.reheader.chr19.vcf.gz	allsamples.reheader.chr20.vcf.gz	allsamples.reheader.chr21.vcf.gz	allsamples.reheader.chr22.vcf.gz;	Date=Thu	Apr	18	17:00:44	2024
+##bcftools_normVersion=1.19-1-g0172073+htslib-1.19-1-g61b037b
+##bcftools_normCommand=norm	-m	-any	-c	s	-f	/share/hennlab/reference/hg38_reference/hs38DH.nochr.fa	-Oz	-o	chr1.allsamples.reheader.ID_done.h.sh.norm.vcf.gz	chr1.allsamples.reheader.ID_done.h.sh.vcf.gz;	Date=Fri	Apr	19	07:41:53	2024
+##INFO=<ID=CM,Number=A,Type=Float,Description="Interpolated	cM	position">
+##bcftools_mergeVersion=1.19-1-g0172073+htslib-1.19-1-g61b037b
+##bcftools_mergeCommand=merge	-m	id	-Oz	-o	chr1.allsamples.and.crawford.merged.vcf.gz	/share/hennlab/projects/khoesan_ancestry/allsamples_phased_wCrawford_2/chr1.allsamples.reheader.ID_done.h.sh.norm.vcf.gz	/share/hennlab/projects/khoesan_ancestry/allsamples_phased_wCrawford/crawford_phased/chr1.crawford_San.hg38.aligned.phased.ID.header_new.h3A.vcf.gz;	Date=Fri	Apr	19	07:53:38	2024
+##INFO=<ID=F_MISSING,Number=.,Type=Float,Description="Added	by	+fill-tags	expression	F_MISSING=F_MISSING">
+##INFO=<ID=AC_Hom,Number=A,Type=Integer,Description="Allele	counts	in	homozygous	genotypes">
+##INFO=<ID=AC_Het,Number=A,Type=Integer,Description="Allele	counts	in	heterozygous	genotypes">
+##INFO=<ID=AC_Hemi,Number=A,Type=Integer,Description="Allele	counts	in	hemizygous	genotypes">
+##INFO=<ID=MAF,Number=1,Type=Float,Description="Frequency	of	the	second	most	common	allele">
+##INFO=<ID=HWE,Number=A,Type=Float,Description="HWE	test	(PMID:15789306);	1=good,	0=bad">
+##INFO=<ID=ExcHet,Number=A,Type=Float,Description="Test	excess	heterozygosity;	1=good,	0=bad">
+##FORMAT=<ID=VAF,Number=A,Type=Float,Description="The	fraction	of	reads	with	alternate	allele	(nALT/nSumAll)">
+##FORMAT=<ID=VAF1,Number=1,Type=Float,Description="The	fraction	of	reads	with	alternate	alleles	(nSumALT/nSumAll)">
+##bcftools_pluginVersion=1.19-1-g0172073+htslib-1.19-1-g61b037b
+##bcftools_pluginCommand=plugin	fill-tags	-Oz	-o	chr1.allsamples.and.crawford.merged.recalc.vcf.gz	chr1.allsamples.and.crawford.merged.vcf.gz;	Date=Fri	Apr	19	08:39:56	2024
+##bcftools_mergeCommand=merge	-m	id	-Oz	-o	chr1.allsamples.crawford.IBS.merged.vcf.gz	/share/hennlab/reference/1000G_GRCh38_biallelic_SNV/IBS/chr1.IBS.h3A.merge.newIDs.vcf.gz	/share/hennlab/projects/khoesan_ancestry/allsamples_phased_wCrawford_2/chr1.allsamples.and.crawford.merged.recalc.geno05.maf0002.vcf.gz;	Date=Sat	Apr	20	12:26:49	2024
+##bcftools_pluginCommand=plugin	fill-tags	-Oz	-o	chr1.allsamples.crawford.IBS.merged.recalc.vcf.gz	chr1.allsamples.crawford.IBS.merged.vcf.gz;	Date=Sat	Apr	20	12:27:50	2024
+##bcftools_concatCommand=concat	chr1.allsamples.crawford.IBS.merged.recalc.vcf.gz	chr2.allsamples.crawford.IBS.merged.recalc.vcf.gz	chr3.allsamples.crawford.IBS.merged.recalc.vcf.gz	chr4.allsamples.crawford.IBS.merged.recalc.vcf.gz	chr5.allsamples.crawford.IBS.merged.recalc.vcf.gz	chr6.allsamples.crawford.IBS.merged.recalc.vcf.gz	chr7.allsamples.crawford.IBS.merged.recalc.vcf.gz	chr8.allsamples.crawford.IBS.merged.recalc.vcf.gz	chr9.allsamples.crawford.IBS.merged.recalc.vcf.gz	chr10.allsamples.crawford.IBS.merged.recalc.vcf.gz	chr11.allsamples.crawford.IBS.merged.recalc.vcf.gz	chr12.allsamples.crawford.IBS.merged.recalc.vcf.gz	chr13.allsamples.crawford.IBS.merged.recalc.vcf.gz	chr14.allsamples.crawford.IBS.merged.recalc.vcf.gz	chr15.allsamples.crawford.IBS.merged.recalc.vcf.gz	chr16.allsamples.crawford.IBS.merged.recalc.vcf.gz	chr17.allsamples.crawford.IBS.merged.recalc.vcf.gz	chr18.allsamples.crawford.IBS.merged.recalc.vcf.gz	chr19.allsamples.crawford.IBS.merged.recalc.vcf.gz	chr20.allsamples.crawford.IBS.merged.recalc.vcf.gz	chr21.allsamples.crawford.IBS.merged.recalc.vcf.gz	chr22.allsamples.crawford.IBS.merged.recalc.vcf.gz;	Date=Sat	Apr	20	13:12:32	2024
+##bcftools_filterVersion=1.19-1-g0172073+htslib-1.19-1-g61b037b
+##bcftools_filterCommand=filter	-e	'F_MISSING	>	0'	-Oz	-o	filtered.vcf.gz	allchr.allsamples.crawford.IBS.merged.recalc.vcf.gz;	Date=Sat	Apr	20	13:24:03	2024
+##bcftools_viewVersion=1.19-1-g0172073+htslib-1.19-1-g61b037b
+##bcftools_viewCommand=view	-S	complete_query.txt	-r	1	--force-samples	-Oz	-o	../query/chr1.complete_query.vcf.gz	allchr.allsamples.crawford.IBS.merged.recalc.geno0.vcf.gz;	Date=Sat	Apr	20	13:54:30	2024
+##fileformat=VCFv4.1
+##source=gnomix.py
+##FORMAT=<ID=GT,Number=1,Type=String,Description="Phased	Genotype">
+#CHROM	POS	ID	REF	ALT	QUAL	FILTER	INFO	FORMAT	Sample_1	Sample_2	Sample_3
+1	874498	rs1	A	G	PASS	.	GT	x	0|0	0|1	1|0
+1	2240540	rs2	A	G	PASS	.	GT	x	1|1	0|0	1|0
+1	2242069	rs3	A	G	PASS	.	GT	x	0|1	1|1	0|0
+1	2242070	rs4	A	G	PASS	.	GT	x	1|0	0|1	1|1
+1	2885700	rs5	A	G	PASS	.	GT	x	0|0	0|0	0|0
+1	3193970	rs6	A	G	PASS	.	GT	x	1|1	1|1	1|1
+1	3413845	rs7	A	G	PASS	.	GT	x	0|1	0|1	0|1
+1	3721063	rs8	A	G	PASS	.	GT	x	1|0	1|0	1|0
+1	3955367	rs9	A	G	PASS	.	GT	x	0|0	0|0	0|0
+1	4125080	rs10	A	G	PASS	.	GT	x	1|1	1|1	1|1

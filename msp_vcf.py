@@ -1,12 +1,24 @@
 # This Python script takes four inputs to output a new VCF file
 # with valid allele frequencies for SNPs from only one
-# ancestry subpopulation
+# ancestry subpopulation. Author: Kiron Ang
 
-# Command line arguments from sys library
 import sys
+
+# Version info tuple
+version_info = sys.version_info[:3]
+
+# Test: Version info tuple not equal (3, 12, 6)
+if version_info != (3, 12, 6):
+  print("ERROR: Python 3.12.6 is required!")
+  exit()
 
 # Command line arguments list
 argv = sys.argv
+
+# Test: Command line arguments list length not equal five
+if len(argv) != 5:
+  print("ERROR: Incorrect number of command line arguments!")
+  exit()
 
 # MSP path string
 msp_path = argv[1]
@@ -41,7 +53,18 @@ int(subpopulation_code)
 # Output path string
 output_path = argv[4]
 
-# MSP file contents TextIOWrapper
+# Test: Output path string last three characters not equal "vcf"
+if output_path[-3:] != "vcf":
+  print("ERROR: Output file extension should end in .vcf!")
+  exit()
+
+# Test: Output file _io.TextIOWrapper created correctly
+try:
+  output = open(output_path, "w")
+except:
+  print("ERROR: Output file could not be created; is the path valid?")
+
+# MSP file _io.TextIOWrapper
 msp = open(msp_path)
 
 # Read only one line at a time from each file
@@ -53,3 +76,4 @@ while True:
     break
 
 msp.close()
+output.close()
