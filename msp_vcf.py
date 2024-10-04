@@ -1,7 +1,8 @@
 # This Python script takes four inputs to output a new VCF file
-# with valid allele frequencies for SNPs from only one
+# with valid allele frequencies for SNPs from ONLY ONE
 # ancestry subpopulation. Author: Kiron Ang
 
+# Import libraries
 import sys
 
 # Version info tuple
@@ -39,12 +40,11 @@ if vcf_path[-3:] != "vcf":
 # Subpopulation code string
 subpopulation_code = argv[3]
 
-# Test: Subpopulation code string not in MSP first line string
+# MSP file _io.TextIOWrapper
 msp = open(msp_path)
-msp_first_line = next(msp)
-msp.close()
 
-if subpopulation_code not in msp_first_line:
+# Test: Subpopulation code string not in MSP first line string
+if subpopulation_code not in next(msp):
   print("ERROR: Not a valid subpopulation code!")
   exit()
 
@@ -64,14 +64,11 @@ try:
 except:
   print("ERROR: Output file could not be created; is the path valid?")
 
-# MSP file _io.TextIOWrapper
-msp = open(msp_path)
-
-# Read only one line at a time from each file
-# This prevents reading in a large file all at once
+# While loop: Print every line in the MSP file
 while True:
   try:
     msp_line = next(msp)
+    print(msp_line)
   except:
     break
 
