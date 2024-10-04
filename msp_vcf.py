@@ -1,6 +1,7 @@
 # This Python script takes four inputs to output a new VCF file
 # with valid allele frequencies for SNPs from ONLY ONE
 # ancestry subpopulation. Author: Kiron Ang
+print("START")
 
 # Import libraries
 import sys
@@ -67,6 +68,7 @@ except:
 # While loop: Print every line in the MSP file
 while True:
   try:
+    # MSP line string
     msp_line = next(msp)
     print(msp_line)
   except:
@@ -74,3 +76,4 @@ while True:
 
 msp.close()
 output.close()
+print("END")
