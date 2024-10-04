@@ -49,6 +49,7 @@ if subpopulation_code not in next(msp):
   print("ERROR: Not a valid subpopulation code!")
   exit()
 
+# Subpopulation code is now an integer
 int(subpopulation_code)
 
 # Output path string
@@ -61,19 +62,41 @@ if output_path[-3:] != "vcf":
 
 # Test: Output file _io.TextIOWrapper created correctly
 try:
-  output = open(output_path, "w")
+  output = open(output_path, "x")
 except:
-  print("ERROR: Output file could not be created; is the path valid?")
+  print("ERROR: Output file exists already or the output path is invalid.")
+  exit()
 
-# While loop: Print every line in the MSP file
+# VCF file _io.TextIOWrapper
+vcf = open(vcf_path)
+
+# While loop: Read MSP lines until next() raises an exception
 while True:
   try:
     # MSP line string
     msp_line = next(msp)
-    print(msp_line)
   except:
     break
 
+    # If first character in MSP line is digit (chromosome number)
+    if msp_line[0].isdigit():
+     
+     # MSP line list
+     msp_line = msp_line.split("\t")
+
+     # spos integer
+     spos = int(msp_line[1])
+
+     # epos integer
+     epos = int(msp_line[2])
+     
+     # While loop: Read VCF lines until pos exceeds epos
+     while True:
+       pass
+
+
+# Close files
 msp.close()
 output.close()
+vcf.close()
 print("END")
