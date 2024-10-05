@@ -1,6 +1,14 @@
+# This Python script was written by Kiron Ang
 # This Python script takes four inputs to output a new VCF file
-# with valid allele frequencies for SNPs from ONLY ONE
-# ancestry subpopulation. Author: Kiron Ang
+# This Python script assumes the following:
+# 1) Both the VCF and MSP files are sorted by genetic coordinates
+# 2) Both the VCF and MSP files contain the same number of people
+# 3) The first line of the MSP file contains the subpopulation codes
+# 4) The first column of both the VCF and MSP contains the chromosome number
+# 5) People information begins in column/field #10 in the VCF file,
+#    and in column/field #7 in the MSP file
+# 6) Both the VCF and MSP files contain information for one chromosome
+# 7) Both the VCF and MSP files contain information for the same chromosome
 print("START")
 
 # Import libraries
@@ -62,9 +70,6 @@ if subpopulation_code not in next(msp):
   print("ERROR: Not a valid subpopulation code!")
   exit()
 
-# Subpopulation code is now an integer
-int(subpopulation_code)
-
 # Output path string
 output_path = argv[4]
 
@@ -115,7 +120,7 @@ while True:
     # pos integer
     pos = int(vcf_line[1])
 
-    # While loop: Keep advancing through MSP tracts until we know that
+    # While loop: Keep advancing through MSP tracts until it is clear that
     # 1) the variant does NOT belong in a tract, or that
     # 2) the variant belongs in a tract
     keep_checking = True
@@ -134,6 +139,21 @@ while True:
         if pos < epos:
           print("A tract corresponds to this variant:", spos, pos, epos)
           keep_checking = False
+
+          # Once it is clear that the variant belongs in a tract, match
+          # the columns in the MSP file with the columns in the VCF file.
+          # Information for each individual is stored in two ways:
+          # 1) In VCF files, individual-level information is stored in one
+          # column per person, starting with column #10
+          # 2) in MSP files, individual-level information is stored in two
+          # columns per person, starting with column #7
+          # Note that with 0-based numbering, this is columns #9 and #6
+
+          # For loop: Check every single column with an individual's data
+          # and see if any values should be replaced with a "."
+          for number in range(len(vcf_line[9:])):
+            vcf_line[number + 9] = "TEST" + vcf_line[number + 9]
+
 
         # pos greater than epos, move to next tract
         else:
