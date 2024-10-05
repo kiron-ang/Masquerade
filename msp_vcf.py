@@ -130,7 +130,29 @@ while True:
       # If pos less than spos
       if pos < spos:
         print("No tract corresponds to this variant:", spos, pos, epos)
+        print("This entire line will be replaced with periods (.)")
         keep_checking = False
+
+        # Replace all variant information with "."
+        for column in range(9, len(vcf_line)):  
+
+          # variants string
+          variants = vcf_line[column]
+
+          # Replace first variant with "."
+          variants = "." + variants[1:]
+
+          # Replace second variant with "." but check for newline
+          # If newline in variants string
+          if "\n" in variants:
+            variants = variants[0:2] + "." + "\n"
+
+          # Newline not in variants string
+          else:
+            variants = variants[0:2] + "."
+
+          # Modify VCF line list directly
+          vcf_line[column] = variants
 
       # pos greater than or equal to spos
       else:
@@ -150,10 +172,50 @@ while True:
           # Note that with 0-based numbering, this is columns #9 and #6
 
           # For loop: Check every single column with an individual's data
-          # and see if any values should be replaced with a "."
-          for number in range(len(vcf_line[9:])):
-            vcf_line[number + 9] = "TEST" + vcf_line[number + 9]
+          # and see if any values should be replaced with a ".", based on the
+          # corresponding subpopulation code in the MSP line
+          # MSP column integer
+          msp_column = 6
 
+          for column in range(9, len(vcf_line)):
+            
+            # variants string
+            variants = vcf_line[column]
+
+            # Check the MSP subpopulation for this person's first variant
+            # If subpopulation code equals MSP value, leave variant untouched
+            if subpopulation_code == msp_line[msp_column][0]:
+              pass
+
+            # Subpopulation code not equal, change first variant to "."
+            else:
+              variants = "." + variants[1:]
+
+            # Increment MSP column number by one to move to the MSP value
+            # that corresponds to the next variant for the same person
+            msp_column += 1
+
+            # Check the MSP subpopulation for the second variant
+            # If subpopulation code equals MSP value, leave variant untouched
+            if subpopulation_code == msp_line[msp_column][0]:
+              pass
+
+            # Subpopulation code not equal, change second variant to "."
+            else:
+
+              # If newline in variants string
+              if "\n" in variants:
+                variants = variants[0:2] + "." + "\n"
+
+              # Newline not in variants string
+              else:
+                variants = variants[0:2] + "."
+
+            # Increment MSP column number by one
+            msp_column += 1
+            
+            # Modify VCF line list directly
+            vcf_line[column] = variants
 
         # pos greater than epos, move to next tract
         else:
@@ -172,7 +234,6 @@ while True:
 
   # Write VCF line in the output file
   output.write("\t".join(vcf_line))
-
 
 # Close files
 msp.close()

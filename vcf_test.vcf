@@ -75,13 +75,13 @@
 ##source=gnomix.py
 ##FORMAT=<ID=GT,Number=1,Type=String,Description="Phased	Genotype">
 #CHROM	POS	ID	REF	ALT	QUAL	FILTER	INFO	FORMAT	Sample_1	Sample_2	Sample_3
-1	874498	rs1	A	G	PASS	.	GT	x	0|0	0|1	1|0
+1	500	rs1	A	G	PASS	.	GT	x	0|0	0|1	1|0
 1	2240540	rs2	A	G	PASS	.	GT	x	1|1	0|0	1|0
 1	2242069	rs3	A	G	PASS	.	GT	x	0|1	1|1	0|0
 1	2242070	rs4	A	G	PASS	.	GT	x	1|0	0|1	1|1
 1	2885700	rs5	A	G	PASS	.	GT	x	0|0	0|0	0|0
 1	3193970	rs6	A	G	PASS	.	GT	x	1|1	1|1	1|1
-1	3413845	rs7	A	G	PASS	.	GT	x	0|1	0|1	0|1
+1	3413823	rs7	A	G	PASS	.	GT	x	0|1	0|1	0|1
 1	3721063	rs8	A	G	PASS	.	GT	x	1|0	1|0	1|0
 1	3955367	rs9	A	G	PASS	.	GT	x	0|0	0|0	0|0
 1	4125080	rs10	A	G	PASS	.	GT	x	1|1	1|1	1|1
