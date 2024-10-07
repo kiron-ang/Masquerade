@@ -1,17 +1,23 @@
 # This Python script was written by Kiron Ang
 # This Python script takes four inputs to output a new VCF file
 # This Python script assumes the following:
-# 1) Both the VCF and MSP files are sorted by genetic coordinates
-# 2) Both the VCF and MSP files contain the same number of people
-# 3) The first line of the MSP file contains the subpopulation codes
-# 4) The first column of both the VCF and MSP contains the chromosome number
-# 5) People information begins in column/field #10 in the VCF file,
-#    and in column/field #7 in the MSP file
-# 6) Both the VCF and MSP files contain information for one chromosome
-# 7) Both the VCF and MSP files contain information for the same chromosome
+# 1) The VCF file contains phased genotypes for at least one individual
+# 2) The MSP file corresponds to the VCF file and contains information for
+#    the exact same individuals that are present in the VCF file
+# 3) Both the VCF and MSP files are sorted by genetic coordinates  
+# 4) Both the VCF and MSP files contain the same number of people  
+# 5) The first line of the MSP file contains the subpopulation codes  
+# 6) The first column of both the VCF and MSP contains the chromosome number  
+# 7) People information begins in column/field #10 in the VCF file,  
+#    and in column/field #7 in the MSP file  
+# 8) Both the VCF and MSP files contain information for one chromosome  
+# 9) Both the VCF and MSP files contain information for the same chromosome 
+# 10) Individual-level information in the VCF is stored in one column in the
+#     format "?|?" or "?|?\n", where "?" is a single character
+# 11) Individual-level information in the MSP file is stored in two columns
 print("START")
 
-# Import libraries
+# Import sys module to read command line arguments passed to the interpreter
 import sys
 
 # Version info tuple
@@ -130,7 +136,7 @@ while True:
       # If pos less than spos
       if pos < spos:
         print("No tract corresponds to this variant:", spos, pos, epos)
-        print("This entire line will be replaced with periods (.)")
+        print("The values in this entire line will be replaced with periods (.)")
         keep_checking = False
 
         # Replace all variant information with "."
@@ -200,7 +206,7 @@ while True:
             if subpopulation_code == msp_line[msp_column][0]:
               pass
 
-            # Subpopulation code not equal, change second variant to "."
+            # Subpopulation code not equal, change second variant value to "."
             else:
 
               # If newline in variants string
