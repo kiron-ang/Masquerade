@@ -36,3 +36,19 @@ python masquerade.py example_msp.msp example_vcf.vcf 0 testing_output.vcf
 ```
 The "testing_output.vcf" file should be created in the directory now.
 The contents of "testing_output.vcf" should match the contests of "example_output.vcf"
+
+Before using *Masquerade* on real-world data, please ensure all data conforms to these assumptions:
+
+1) The VCF file contains phased genotypes for at least one individual
+2) The MSP file corresponds to the VCF file and contains information for the exact same individuals that are present in the VCF file
+3) Both the VCF and MSP files are sorted by genetic coordinates  
+4) Both the VCF and MSP files contain the same number of people  
+5) The first line of the MSP file contains the subpopulation codes  
+6) The first column of both the VCF and MSP contains the chromosome number  
+7) People information begins in column/field #10 in the VCF file, and in column/field #7 in the MSP file  
+8) Both the VCF and MSP files contain information for one chromosome  
+9) Both the VCF and MSP files contain information for the same chromosome 
+10) Individual-level information in the VCF is stored in one column in the format "?|?" or "?|?\n", where "?" is a single character
+11) Individual-level information in the MSP file is stored in two columns
+
+Please contact Kiron Ang at kiron_ang1@baylor.edu for any suggestions, questions, or bug reports.
