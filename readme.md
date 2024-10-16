@@ -13,7 +13,7 @@ Typically, VCF files with phased genotypes contain information in the following 
 
 *Masquerade* is intended for command line usage:
 ```
-python masquerade.py [VCF_path] [MSP_path] [subpopulation_code] [output_path]
+python masquerade.py [MSP_path] [VCF_path] [subpopulation_code] [output_path]
 ```
 "VCF_path" represents a relative or absolute path to the VCF file.
 Similarly, "MSP_path" represents a path to the corresponding MSP file.
